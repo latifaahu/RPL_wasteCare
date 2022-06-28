@@ -23,6 +23,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', [
+            "title" => "Waste Care | Home",
+            "active" => 'home'
+        ]);
     }
+    public function profile()
+    {
+        return view('profile', [
+            "title" => "Waste Care | Profile",
+            "active" => 'profile'
+        ]);
+    }
+
+
 }

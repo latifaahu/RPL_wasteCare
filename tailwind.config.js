@@ -14,6 +14,9 @@ module.exports = {
             'green-650': '#527540',
             'green-950':'#2F4A21'
           },
+          fontFamily: {
+            'nunito': ['Nunito', 'sans-serif'],
+      }
       },
   },
   variants: {
