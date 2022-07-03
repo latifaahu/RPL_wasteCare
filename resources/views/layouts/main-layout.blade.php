@@ -5,7 +5,7 @@
 </head>
 <body class="font-nunito">
     <div id="app"
-        class="h-screen bg-green-950"
+        class="bg-green-950"
         :class="{ 'overflow-hidden': isSideMenuOpen}"
       >
         @include('layouts.partials.nav')

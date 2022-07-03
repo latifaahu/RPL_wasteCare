@@ -16,7 +16,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('index', ["title" => "Waste Care"]);
+    return view('index', ["title" => "Waste Care", "active" => "home"]);
 });
 
 Auth::routes();

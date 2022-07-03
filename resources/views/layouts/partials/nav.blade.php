@@ -1,9 +1,12 @@
-<nav class=" z-10 {{ ("isModalOpen") ? "z-[5]" : "z-10"}} py-4 shadow-md bg-white">
+<nav class="fixed w-full z-10 {{ ("isModalOpen") ? "z-[5]" : "z-10"}} py-4 shadow-md bg-white">
     <div
     class="container flex items-center justify-between h-full px-20 mx-auto"
     >
-    <a class="text-2xl font-bold" href="{{ url('/') }}">
+    <a class="text-2xl font-bold inline-flex items-center justify-between" href="{{ url('/') }}">
         {{-- {{ config('app.name', 'To Do List') }} --}}
+        <span class="mr-3 mb-2">
+            <img src="/img/logo.png" alt="logo" class="w-12 h-auto">
+        </span>
         {{ __('Waste Care') }}
     </a>
 
@@ -19,18 +22,68 @@
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-20 py-4 sm:block">
                 @auth
-                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 pr-4">Home</a>
+                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 pr-4">Home</a>
                 @else
-                    <a class="nav-link text-sm text-gray-700 dark:text-gray-500 pr-4" href="{{ route('login') }}">{{ __('Login') }}</a>
-
-                    @if (Route::has('register'))
-                    <a class="nav-link text-sm text-gray-700 dark:text-gray-500" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    @endif
+                    <a class="nav-link text-sm text-gray-700 pr-4" href="{{ route('login') }}">{{ __('Login') }}</a>
                 @endauth
             </div>
         @endif
 
     @else
+    <li>
+         <a href="{{ url('/home') }}" class="text-sm text-gray-700 pr-3 {{ ($active === "home") ? "font-bold text-green-950" : "" }}">Home</a>
+    </li>
+    <!-- Notifications menu -->
+    <li class="relative">
+    <button
+        class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
+        @click="toggleNotificationsMenu"
+        @keydown.escape="closeNotificationsMenu"
+        aria-label="Notifications"
+        aria-haspopup="true"
+    >
+        <div
+        class="inline-flex items-center justify-between w-full px-2 text-sm rounded-md  hover:text-gray-800"
+        >
+        <span>Layanan</span>
+        <span
+            class="inline-flex items-center justify-center px-2 text-xs leading-none"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+        </span>
+        </div>
+    </button>
+    <template x-if="isNotificationsMenuOpen">
+        <ul
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        @click.away="closeNotificationsMenu"
+        @keydown.escape="closeNotificationsMenu"
+        class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-200 rounded-md shadow-md"
+        aria-label="submenu"
+        >
+        <li class="flex">
+            <a
+            class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+            href="/home"
+            >
+            <span>Pick Up</span>
+            </a>
+        </li>
+        <li class="flex">
+            <a
+            class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+            href="/home"
+            >
+            <span>Drop Off</span>
+            </a>
+        </li>
+        </ul>
+    </template>
+    </li>
     <!-- Profile menu -->
     <li class="relative">
         <button
@@ -54,7 +107,7 @@
             x-transition:leave-end="opacity-0"
             @click.away="closeProfileMenu"
             @keydown.escape="closeProfileMenu"
-            class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md"
+            class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-200 rounded-md shadow-md"
             aria-label="submenu"
             >
             <li class="flex">

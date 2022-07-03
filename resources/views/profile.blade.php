@@ -1,7 +1,17 @@
 @extends('layouts.main-layout')
 
 @section('content')
-<div class="px-20 py-5">
+<div class="px-20 my-20 h-screen">
+    <div class="w-full py-4">
+        <div
+        class="py-4"
+        >
+        <div>
+            hanya untuk gap
+        </div>
+        </div>
+    </div>
+
     <h4
         class="mb-4 text-2xl font-semibold text-white"
     >
@@ -59,6 +69,5 @@
         </div>
     </div>
     </div>
-
 </div>
 @endsection
