@@ -16,10 +16,11 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('index', ["title" => "Waste Care", "active" => "home"]);
+    return view('home', ["title" => "Waste Care", "active" => "home"]);
 });
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('user/profile/{id}', [HomeController::class, 'profile']);
+Route::get('/pickup', [HomeController::class, 'pickup']);

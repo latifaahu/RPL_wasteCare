@@ -20,13 +20,12 @@
     <!-- Authentication Links -->
     @guest
         @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-20 py-4 sm:block">
-                @auth
-                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 pr-4">Home</a>
-                @else
-                    <a class="nav-link text-sm text-gray-700 pr-4" href="{{ route('login') }}">{{ __('Login') }}</a>
-                @endauth
-            </div>
+        <li>
+            <a href="{{ url('/home') }}" class="text-sm text-gray-700 pr-4 {{ ($active === "home") ? "font-bold text-green-950" : "" }}">Home</a>
+        </li>
+        <li>
+            <a class="text-sm text-gray-700 pr-4" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </li>
         @endif
 
     @else
@@ -43,7 +42,7 @@
         aria-haspopup="true"
     >
         <div
-        class="inline-flex items-center justify-between w-full px-2 text-sm rounded-md  hover:text-gray-800"
+        class="inline-flex items-center justify-between w-full px-2 text-sm rounded-md  hover:text-gray-800 {{ ($active === "layanan") ? "font-bold text-green-950" : "" }}"
         >
         <span>Layanan</span>
         <span
@@ -68,7 +67,7 @@
         <li class="flex">
             <a
             class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
-            href="/home"
+            href="/pickup"
             >
             <span>Pick Up</span>
             </a>
@@ -76,7 +75,7 @@
         <li class="flex">
             <a
             class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
-            href="/home"
+            href="/dropoff"
             >
             <span>Drop Off</span>
             </a>

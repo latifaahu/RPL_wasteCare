@@ -99,7 +99,39 @@
             </a>
             </div>
         </div>
-
+    </div>
+    <div class="px-20 bg-gray-50 py-4">
+        <div class="py-4 mt-4">
+        </div>
+        <div class="py-4 flex">
+            <div class="w-1/4 ">
+                <h1 class="text-2xl font-bold">
+                    Visi dan Misi WasteCare
+                </h1>
+                <p>Kami hadir untuk anda yang peduli perawatan kulit namun tidak lupa kesehatan lingkungan bisa membuat anda tetap profit</p>
+            </div>
+            <div class="w-1/4 mx-4"></div>
+            <div class="ml-4 w-1/2">
+                <div class="px-5 py-4 border-2 border-green-950 mb-4">
+                    <h1 class="text-xl font-bold mb-4">Visi</h1>
+                    <p>Terwujudnya Bank Sampah terkhusus limbah produk perawatan tubuh yang mandiri untuk membangun ekonomi kerakyatan serta lingkungan yang bersih dan hijau sehingga tercipta masyarakat yang sehat.</p>
+                </div>
+                <div class="px-5 py-4 border-2 border-green-950">
+                    <h1 class="text-xl font-bold mb-4">Misi</h1>
+                    {{-- <ul class="list-decimal">
+                    </ul> --}}
+                    <li>Mengurangi jumlah timbunan limbah produk perawatan tubuh</li>
+                    <li>Mendayagunakan sampah produk perawatan tubuh menjadi barang bermanfaat sehingga mempunyai
+                        nilai ekonomi dan potensi yang produktif dan bermanfaat bagi masyarakat</li>
+                    <li>Merubah perilaku masyarakat dalam pengelolaan sampah produk perawatan tubuh secara benar dan
+                        ramah lingkungan</li>
+                    <li>Menciptakan lingkungan yang bersih dan sehat</li>
+                    <li>Menciptakan lapangan pekerjaan</li>
+                </div>
+            </div>
+        </div>
+        <div class="py-4 mt-4">
+        </div>
     </div>
 </div>
 @endsection

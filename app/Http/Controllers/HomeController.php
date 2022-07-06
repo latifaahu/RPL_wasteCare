@@ -35,6 +35,13 @@ class HomeController extends Controller
             "active" => 'profile'
         ]);
     }
+    public function pickup()
+    {
+        return view('pickup', [
+            "title" => "Waste Care | Pick Up",
+            "active" => 'layanan'
+        ]);
+    }
 
 
 }
